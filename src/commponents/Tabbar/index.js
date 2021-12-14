@@ -1,5 +1,5 @@
 import './tabbar.scss'
-import {useState} from "react";
+import {useState,useImperativeHandle,forwardRef} from "react";
 
 const domList = [
     {icon: 'home-outline', title: 'Home'},
@@ -9,12 +9,19 @@ const domList = [
     {icon: 'settings-outline', title: 'Home'}
 ]
 
-const Tabbar = (params) => {
+const Tabbar = (props,ref) => {
     const [activeIndex,setActiveIndex] = useState(0)
+
+    // 暴露给父组件的方法
+    useImperativeHandle(ref, () => ({
+        setIndex:(index)=> setActiveIndex(index)
+    }))
+
     const clickListItem = (index) => {
         setActiveIndex(index)
-        params.tabbarIndexChange(index)
+        props.setTabbarIndex(index)
     }
+
     return (
         <div className='Box'>
             <ul>
@@ -39,4 +46,4 @@ const Tabbar = (params) => {
     )
 }
 
-export default Tabbar
+export default forwardRef(Tabbar)

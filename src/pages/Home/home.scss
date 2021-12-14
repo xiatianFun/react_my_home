@@ -16,11 +16,12 @@ $art_font: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,
 
 
 .header{
-  height: 39px;
+  height: 44px;
   width: 100vw;
   background:#fff;
-  line-height:39px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
 }
 
 .homeContentStyle{
