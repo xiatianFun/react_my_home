@@ -1,4 +1,4 @@
-import {Component, useState, useEffect} from 'react';
+import {Component} from 'react';
 
 /**
  * @name 过场动画组件

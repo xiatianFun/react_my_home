@@ -1,0 +1,111 @@
+$mainColor:#222327;
+
+.Box {
+  width: 90%;
+  height: 70px;
+  background: #fff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  bottom: 100px;
+  left: 20px;
+}
+.Box ul {
+  display: flex;
+  width: 350px;
+}
+.Box ul li {
+  position: relative;
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+.Box ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+.Box ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 80px;
+  font-size: 2em;
+  text-align: center;
+  transition: 0.5s;
+  color: $mainColor;
+}
+.Box ul li.active a .icon{
+  transform: translateY(-35px);
+}
+.Box ul li a .text {
+  position: absolute;
+  color: $mainColor;
+  font-weight: 400;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.Box ul li.active a .text {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.indicator{
+  position: absolute;
+  top: -50%;
+  width: 70px;
+  height: 70px;
+  background: #29fd53;
+  border-radius: 50%;
+  border: 6px solid #4456a7;
+  transition: .5s;
+}
+
+.indicator::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 0px -10px 0 0 #4456a7;
+}
+.indicator::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: 0px -10px 0 0 #4456a7;
+}
+
+.Box ul li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(70px * 0));
+}
+.Box ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(70px * 1));
+}
+.Box ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(70px * 2));
+}
+.Box ul li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(70px * 3));
+}
+.Box ul li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(70px * 4));
+}
